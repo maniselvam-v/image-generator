@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Images</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .container img {
+      margin: 10px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    h1{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random images</h1>
+  <div class="container"></div>
+  <script>
+    const container = document.querySelector('.container');
+    const picsumURL = 'https://picsum.photos/';
+    const rows = 5;
+
+    const getRandomNumber = () => Math.floor(Math.random() * 100) + 300;
+    const getRandomSize = () => `${getRandomNumber()}/${getRandomNumber()}`;
+
+    for (let i = 0; i < rows * 3; i++) {
+      const image = document.createElement('img');
+      image.src = `${picsumURL}${getRandomSize()}`;
+      container.appendChild(image);
+    }
+  </script>
+</body>
+</html>
